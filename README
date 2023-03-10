@@ -1,2 +1,8 @@
-Snake
+C Opengl Template Project
 
+Comes with:
+    1. GLFW
+    2. OpenGL
+    3. linmath
+    4. nuklear
+    5. Everything else in ext/glfw/deps folder

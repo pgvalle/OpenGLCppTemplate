@@ -4,7 +4,8 @@ project(ProjectNameHere)
 set (FINAL_TARGET executableNameHere)
 
 # adding all .h and .c files inside src directory as sources
-file(GLOB_RECURSE SOURCE_FILES src/*.h src/*.c)
+file(GLOB_RECURSE SOURCE_FILES ${CMAKE_SOURCE_DIR}/src/*.h
+    ${CMAKE_SOURCE_DIR}/src/*.c)
 add_executable(${FINAL_TARGET} ${SOURCE_FILES})
 target_include_directories(${FINAL_TARGET} PRIVATE ${CMAKE_SOURCE_DIR}/ext)
 
@@ -19,20 +20,20 @@ if(WIN32)
 
     # fetch glfw
     FetchContent_Declare(
-        glfw3
+        glfw
         GIT_REPOSITORY https://github.com/glfw/glfw
         GIT_TAG 3.3.8
-        SOURCE_DIR ${CMAKE_SOURCE_DIR}/ext/glfw3
+        SOURCE_DIR ${CMAKE_SOURCE_DIR}/ext/glfw
     )
-    FetchContent_MakeAvailable(glfw3)
+    FetchContent_MakeAvailable(glfw)
 
     # integrate glfw with project
     add_dependencies(${FINAL_TARGET} glfw)
-    target_include_directories(${FINAL_TARGET} PRIVATE ${glfw3_SOURCE_DIR}/include)
-    target_link_libraries(${FINAL_TARGET} PRIVATE glfw3)
+    target_include_directories(${FINAL_TARGET} PRIVATE ${glfw_SOURCE_DIR}/include)
+    target_link_libraries(${FINAL_TARGET} PRIVATE glfw)
     # when build is done, copy glfw3.dll to where the executable is
     add_custom_command(TARGET ${FINAL_TARGET} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy ${glfw3_BINARY_DIR}/src/glfw3.dll ${CMAKE_BINARY_DIR}
+        COMMAND ${CMAKE_COMMAND} -E copy ${glfw_BINARY_DIR}/src/glfw3.dll ${CMAKE_BINARY_DIR}
     )
 else()
     find_package(glfw3  REQUIRED)

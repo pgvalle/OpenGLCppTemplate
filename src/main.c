@@ -1,6 +1,6 @@
 // this is the official quickstart example in glfw docs:
 // https://www.glfw.org/docs/3.3/quick.html
-#include <glad/gl.h>
+#include <glad.h>
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
  

@@ -10,7 +10,7 @@ How to use:
     Windows installer: https://github.com/Kitware/CMake/releases/download/v3.26.1/cmake-3.26.1-windows-x86_64.msi
 
     Go to you terminal/cmd and move to the root directory of the cloned repo.
-    Then type one of the following commands depending on which OS you use:
+    Then type one of the following commands depending on your platform:
         linux/macos: cmake -S. -Bbuild
         windows (mingw): cmake -S. -Bbuild -G"MinGW Makefiles"
         windows (msvc): cmake -S. -Bbuild -G"Visual Studio {visual-studio-major-version-number} {release-year}"

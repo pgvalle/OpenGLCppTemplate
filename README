@@ -1,9 +1,25 @@
-C Opengl Template Project
+C++ Opengl Template Project
 
 Comes with:
     1. GLFW
     2. OpenGL
     3. linmath
+
+How to use:
+    First, make sure you have cmake installed.
+    Windows installer: https://github.com/Kitware/CMake/releases/download/v3.26.1/cmake-3.26.1-windows-x86_64.msi
+
+    Go to you terminal/cmd and move to the root directory of the cloned repo.
+    Then type one of the following commands depending on which OS you use:
+        linux/macos: cmake -S. -Bbuild
+        windows (mingw): cmake -S. -Bbuild -G"MinGW Makefiles"
+        windows (msvc): cmake -S. -Bbuild -G"Visual Studio {visual-studio-major-version-number} {release-year}"
+    
+    This command should take a while to finish if you don't have glfw installed. But don't worry if you don't.
+    Now, if no errors happened, just type:
+        cmake --build build
+
+    You should see and be able to execute "exampleProgram" inside the newly created build directory.
 
 PLEASE READ THIS:
     Jesus loves you and wants to help, protect, bring happiness and save us from hell.

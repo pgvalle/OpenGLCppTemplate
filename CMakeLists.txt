@@ -1,43 +1,33 @@
 cmake_minimum_required(VERSION 3.10)
 
 project(ProjectNameHere)
-set (FINAL_TARGET executableNameHere)
+set (FINAL_TARGET exampleProgram)
 
-# adding all .h and .c files inside src directory as sources
-file(GLOB_RECURSE SOURCE_FILES ${CMAKE_SOURCE_DIR}/src/*.h
-    ${CMAKE_SOURCE_DIR}/src/*.c)
+# adding all .c files inside src as sources
+file(GLOB_RECURSE SOURCE_FILES ${CMAKE_SOURCE_DIR}/src/*.cpp)
 add_executable(${FINAL_TARGET} ${SOURCE_FILES})
 target_include_directories(${FINAL_TARGET} PRIVATE ${CMAKE_SOURCE_DIR}/ext)
 
-if(WIN32)
+find_package(glfw3 3.3 QUIET)
+if(NOT glfw3_FOUND)
     include(FetchContent)
 
-    # configure glfw
-    set(BUILD_SHARED_LIBS   ON )
-    set(GLFW_BUILD_EXAMPLES OFF)
-    set(GLFW_BUILD_TESTS    OFF)
-    set(GLFW_BUILD_DOCS     OFF)
-
-    # fetch glfw
     FetchContent_Declare(
         glfw
         GIT_REPOSITORY https://github.com/glfw/glfw
         GIT_TAG 3.3.8
-        SOURCE_DIR ${CMAKE_SOURCE_DIR}/ext/glfw
+        SOURCE_DIR ext/glfw
     )
+    # pre-configuration and download
+    set(BUILD_SHARED_LIBS   OFF)
+    set(GLFW_BUILD_EXAMPLES OFF)
+    set(GLFW_BUILD_TESTS    OFF)
+    set(GLFW_BUILD_DOCS     OFF)
     FetchContent_MakeAvailable(glfw)
 
-    # integrate glfw with project
+    # integration
     add_dependencies(${FINAL_TARGET} glfw)
-    target_include_directories(${FINAL_TARGET} PRIVATE ${glfw_SOURCE_DIR}/include)
-    target_link_libraries(${FINAL_TARGET} PRIVATE glfw)
-    # when build is done, copy glfw3.dll to where the executable is
-    add_custom_command(TARGET ${FINAL_TARGET} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy ${glfw_BINARY_DIR}/src/glfw3.dll ${CMAKE_BINARY_DIR}
-    )
-else()
-    find_package(glfw3  REQUIRED)
-    find_package(OpenGL REQUIRED)
-
-    target_link_libraries(${FINAL_TARGET} PRIVATE glfw3 OpenGL)
+    target_include_directories(${FINAL_TARGET} PRIVATE ${glfw3_SOURCE_DIR}/include)
 endif()
+
+target_link_libraries(${FINAL_TARGET} PRIVATE glfw)

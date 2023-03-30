@@ -1,19 +1,19 @@
 C++ OpenGL Template Project
 
-Comes with:
-    1. OpenGL: https://www.opengl.org/ (Obviously)
-    2. GLFW: https://github.com/glfw/glfw (from what I know, we can't run away of needing GLFW or an equivalent)
+Components:
+    1. OpenGL:  https://www.opengl.org/ (Obviously)
+    2. GLFW:    https://github.com/glfw/glfw (from what I know, we can't run away of needing GLFW or an equivalent)
     3. linmath: https://github.com/datenwolf/linmath.h (a simple linear algebra library)
 
-How to use:
+Building:
     First, make sure you have cmake installed.
     Windows installer: https://github.com/Kitware/CMake/releases/download/v3.26.1/cmake-3.26.1-windows-x86_64.msi
 
     Go to you terminal/cmd and move to the root directory of the cloned repo.
     Then type one of the following commands depending on your platform:
-        - linux/macos: cmake -S. -Bbuild
+        - linux/macos:     cmake -S. -Bbuild
         - windows (mingw): cmake -S. -Bbuild -G"MinGW Makefiles"
-        - windows (msvc): cmake -S. -Bbuild -G"Visual Studio {visual-studio-major-version-number} {release-year}"
+        - windows (msvc):  cmake -S. -Bbuild -G"Visual Studio {major-version-number} {release-year}"
     
     This command should take a while to finish if you don't have glfw installed. But don't worry if you don't.
     Now, if no errors happened, just type:

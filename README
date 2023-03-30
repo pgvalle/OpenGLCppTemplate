@@ -1,9 +1,9 @@
 C++ OpenGL Template Project
 
 Comes with:
-    1. GLFW: https://github.com/glfw/glfw (of what ik about opengl, we can't run out of having something like GLFW)
-    2. OpenGL: https://www.opengl.org/
-    3. linmath: https://github.com/datenwolf/linmath.h
+    1. OpenGL: https://www.opengl.org/ (Obviously)
+    2. GLFW: https://github.com/glfw/glfw (from what I know, we can't run away of needing GLFW or an equivalent)
+    3. linmath: https://github.com/datenwolf/linmath.h (a simple linear algebra library)
 
 How to use:
     First, make sure you have cmake installed.

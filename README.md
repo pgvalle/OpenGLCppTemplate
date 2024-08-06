@@ -2,9 +2,9 @@
 
 ## Components
 1. [OpenGL](https://www.opengl.org/) (Obviously)
-2. [GLFW 3.4](https://github.com/glfw/glfw) (abstracts window handling, mouse, keyboard and etc...)
+2. [GLFW](https://github.com/glfw/glfw) (abstracts window handling, mouse, keyboard and etc...)
 3. [linmath](https://github.com/datenwolf/linmath.h) (linear algebra)
-4. [stb_image](https://github.com/nothings/stb) (image loading)
+4. [stb_image](https://github.com/nothings/stb/blob/master/stb_image.h) (image loading)
 
 ## Building
 1. Make sure you have cmake installed. Windows installer [here](https://github.com/Kitware/CMake/releases/download/v3.26.1/cmake-3.26.1-windows-x86_64.msi).
